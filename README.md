@@ -42,8 +42,8 @@ Provides fast, reliable and extensible starter for the development of Angular pr
 In order to start the project use:
 
 ```bash
-$ git clone https://github.com/start-angular/SB-Admin-BS4-Angular-6.git
-$ cd SB-Admin-BS4-Angular-6
+$ git clone http://karlbuena@ec2-3-1-94-169.ap-southeast-1.compute.amazonaws.com/karlbuena/Default-Template.git yourProjectName
+$ cd yourProjectName
 # install the project's dependencies
 $ npm install
 # watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
