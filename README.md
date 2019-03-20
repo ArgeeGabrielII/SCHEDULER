@@ -1,3 +1,9 @@
+# EYES HERE #
+1. As of March 20, 2019 packages are secured. No vulnerabilities.
+After cloning, kindly run 'npm audit' to scan for vulnerabilities of the packages included in the project.
+If issue(s) found, kindly perform necessary action to resolve vulnerabilities, especially those marked with 'High Risk'
+2. Remove any unused component before deploying your app to PRODUCTION.
+
 # SB Admin rewritten in Angular7 and Bootstrap 4
 
 Simple Dashboard Admin App built using Angular 7 and Bootstrap 4

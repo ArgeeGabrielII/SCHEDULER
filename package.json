@@ -1,16 +1,24 @@
 {
-  "name": "SB-Admin-BS4-Angular-7",
+  "name": "Default-Template",
   "version": "7.0.0",
   "license": "Apache",
+  "config": {
+    "s3BucketName": "",
+    "region": "ap-southeast-1",
+    "profile": ""
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "gitbuild": "ng build --prod --base-href /start-angular/SB-Admin-BS4-Angular-7/master/dist/",
+    "start": "ng serve --ec true",
+    "build": "ng build --prod --aot",
     "test": "ng test",
-    "test-ci": "TEST_CI=true ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "s3-list": "aws s3 ls",
+    "s3-build-upload-qa": "ng build --aot && aws s3 rm s3://%npm_package_config_s3BucketName% --recursive && aws s3 cp ./dist s3://%npm_package_config_s3BucketName% --recursive --acl public-read --region %npm_package_config_region%",
+    "s3-build-upload": "ng build --prod --aot && aws s3 rm s3://%npm_package_config_s3BucketName% --recursive && aws s3 cp ./dist s3://%npm_package_config_s3BucketName% --recursive --acl public-read --region %npm_package_config_region%",
+    "s3-upload": "aws s3 rm s3://%npm_package_config_s3BucketName% --recursive && aws s3 cp ./dist s3://%npm_package_config_s3BucketName% --recursive --acl public-read --region %npm_package_config_region%",
+    "s3-download": "aws s3 cp s3://%npm_package_config_s3BucketName% ./backup --recursive --acl public-read --region %npm_package_config_region%"
   },
   "private": true,
   "dependencies": {
@@ -35,17 +43,17 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.10.4",
+    "@angular-devkit/build-angular": "^0.13.6",
     "@angular/cli": "7.0.4",
-    "@angular/compiler-cli": "7.0.2",
+    "@angular/compiler-cli": "^7.2.10",
     "@angular/language-service": "7.0.2",
-    "@types/node": "10.12.2",
     "@types/jasmine": "2.8.9",
     "@types/jasminewd2": "2.0.5",
+    "@types/node": "10.12.2",
     "codelyzer": "4.5.0",
     "jasmine-core": "3.3.0",
     "jasmine-spec-reporter": "4.2.1",
-    "karma": "3.1.1",
+    "karma": "^4.0.1",
     "karma-chrome-launcher": "2.2.0",
     "karma-cli": "1.0.1",
     "karma-coverage-istanbul-reporter": "2.0.4",
